@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const limiter = require("express-rate-limit");
-const limit =  limiter({
+const limit = limiter({
     windowMs: 60 * 1000,
     max: 300,
     handler: (req, res) => {
@@ -20,17 +20,17 @@ app.listen(PORT, () => {
     console.log(`Server Started At http://localhost:${PORT}`);
 });
 
-app.get("/:username", (req, res) => {
+app.get("/wish/:username", (req, res) => {
     res.sendFile(path.join(__dirname, "static", "wish.html"));
 });
 
-app.get('/',(req,res) => {
-  res.sendFile(path.join(__dirname,'static','home.html'))
-})
-
-app.get('/images/:image',(req,res) => {
-   res.sendFile(path.join(__dirname, 'static', 'images', req.params.image))
-  })
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "static", "home.html"));
+});
+/*
+app.get("/images/:image", (req, res) => {
+    res.sendFile(path.join(__dirname, "static", "images", req.params.image));
+})*/
 
 app.use((req, res) => {
     res.status(404).json({
