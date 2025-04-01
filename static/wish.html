@@ -558,7 +558,7 @@
             const username =
                 url.pathname.replaceAll("_", " ").replaceAll("wish/","").replaceAll("/","") ||
                 "Unknown User";
-            nameDisplay.textContent = username + " Is";
+            nameDisplay.innerHTML = username + " Is";
 
             let name;
             nameInput.oninput = e => {
