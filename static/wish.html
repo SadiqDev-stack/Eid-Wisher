@@ -556,7 +556,7 @@
             const url = new URL(location.href);
             const dirname = url.origin;
             const username =
-                url.pathname.replaceAll("/", "").replaceAll("_", " ").replaceAll("wish","") ||
+                url.pathname.replaceAll("_", " ").replaceAll("wish/","") ||
                 "Unknown User";
             nameDisplay.textContent = username + " Is";
 
@@ -568,7 +568,7 @@
             // for generator
             generateBtn.onclick = e => {
                 if (!name) return alert("Empty Name!");
-                const url = `${dirname}/${name}`;
+                const url = `${dirname}/wish/${name}`;
                 const [
                     title,
                     nameDisplay,
