@@ -31,6 +31,7 @@ app.get("/", (req, res) => {
 app.get("/images/:image", (req, res) => {
     res.sendFile(path.join(__dirname, "static", "images", req.params.image));
 })
+
 app.use((req, res) => {
     res.status(404).json({
         message: "Route Not Found"
