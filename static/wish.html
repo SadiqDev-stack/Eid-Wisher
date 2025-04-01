@@ -556,7 +556,7 @@
             const url = new URL(location.href);
             const dirname = url.origin;
             const username =
-                url.pathname.replace("/", "").replaceAll("_", " ") ||
+                url.pathname.replace("/", "").replace("/wish","").replaceAll("_", " ") ||
                 "Unknown User";
             nameDisplay.textContent = username + " Is";
 
