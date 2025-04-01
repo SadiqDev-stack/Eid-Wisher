@@ -24,10 +24,8 @@ app.get("/:username", (req, res) => {
     res.sendFile(path.join(__dirname, "static", "wish.html"));
 });
 
-
-app.get('/images/:image',(req,res) => {
-    const  srcPath = path.join(__dirname,"static", "images", req.params.image)
-    res.sendFile(srcPath)
+app.get('/',(req,res) => {
+  res.sendFile(path.join(__dirname,'static','home.html'))
 })
 
 app.use((req, res) => {

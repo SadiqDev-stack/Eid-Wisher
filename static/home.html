@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="monetag" content="1bbd209cd6a46e82bc5cbdeecfb62d6c">
+        <title>Eid Wisher Home</title>
+        <style>
+            html {
+                overflow: hidden;
+            }
+            body * {
+                text-transform: capitalize;
+                color: white;
+            }
+            body {
+                justify-content: center;
+                background: black;
+                row-gap: 3rem;
+                text-align: center;
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                overflow: hidden;
+                font-family: arial;
+            }
+
+            .swinging {
+                animation: swing 2.5s 0s ease-in-out infinite;
+                transform-origin: center;
+            }
+
+            @keyframes swing {
+                0% {
+                    transform: rotateZ(0deg) scale(1);
+                }
+                25% {
+                    transform: rotateZ(-20deg) scale(0.9);
+                }
+                50% {
+                    transform: rotateZ(0deg) scale(0.8);
+                }
+                75% {
+                    transform: rotateZ(20deg) scale(0.9);
+                }
+                100% {
+                    transform: rotateZ(0deg) scale(1);
+                }
+            }
+
+            .hueing {
+                animation: hue 2s 0s linear infinite;
+            }
+
+            @keyframes hue {
+                to {
+                    filter: hue-rotate(360deg);
+                }
+            }
+
+            h2 {
+                font-size: 2rem;
+                color: #5fffa5;
+            }
+
+            .detail {
+                width: 90%;
+            }
+
+            a {
+                background: #5fffa5;
+                color: black;
+                padding: 0.7rem;
+                border: none;
+                border-radius: 0.5rem;
+                font-weight: bold;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body class="hueing">
+        <h2 class="title">Eid Wisher</h2>
+        <img class="swinging" src="./images/eid_moon2.png" alt="" />
+        <div class="detail">
+            Welcome to eid wisher a project by Sadiq Cyber this project is
+            amazing and allow muslims to wish there friends on eid day, by just
+            creating a wish 😍, it is simple beutiful and amazing hit down
+            button to get yours 👇👇
+        </div>
+        <a href="https://eid-wisher.vercel.app/Sadiq_Cyber">Wish Friend</a>
+    </body>
+</html>
