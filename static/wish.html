@@ -1,0 +1,589 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Happy Eid</title>
+        <style>
+            html {
+                overflow: hidden;
+            }
+            body * {
+                text-transform: capitalize;
+            }
+            body {
+                width: 100vw;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                margin: 0;
+                overflow: hidden;
+                font-family: arial;
+            }
+
+            .bar {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .wishBar {
+                justify-content: center;
+                color: white;
+            }
+
+            .cake {
+                width: 80%;
+                height: 50%;
+                z-index: 2;
+            }
+
+            .swinging {
+                animation: swing 2.5s 0s ease-in-out infinite;
+                transform-origin: center;
+            }
+
+            @keyframes swing {
+                0% {
+                    transform: rotateZ(0deg) scale(1);
+                }
+                25% {
+                    transform: rotateZ(-20deg) scale(0.9);
+                }
+                50% {
+                    transform: rotateZ(0deg) scale(0.8);
+                }
+                75% {
+                    transform: rotateZ(20deg) scale(0.9);
+                }
+                100% {
+                    transform: rotateZ(0deg) scale(1);
+                }
+            }
+
+            .wishBar .title {
+                margin: 1rem;
+                font-size: 2rem;
+                z-index: 2;
+                color: greenyellow;
+            }
+
+            .wishBar .opener {
+                width: 50%;
+                height: 100%;
+                background: black;
+                position: absolute;
+                z-index: -1;
+                top: 0;
+                animation: null 1s 0s forwards;
+            }
+
+            .wishBar .left {
+                left: 0;
+                transform: translateX(0%);
+            }
+
+            @keyframes open_left {
+                to {
+                    transform: translateX(-150%);
+                }
+            }
+
+            .wishBar .right {
+                right: 0;
+            }
+
+            @keyframes open_right {
+                to {
+                    transform: translateX(150%);
+                }
+            }
+
+            .main_bar {
+                /*background: #CBFEE2*/
+                background: #cbfee2;
+            }
+
+            .main_bar img {
+                width: 20px;
+            }
+
+            .main_bar marquee {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                row-gap: 1rem;
+                width: 15%;
+                align-items: center;
+                top: 0;
+                position: absolute;
+            }
+
+            .main_bar .left_moons {
+                left: 0;
+            }
+            .main_bar .right_moons {
+                right: 0;
+            }
+
+            .main_bar .moon {
+                width: 80%;
+            }
+
+            .main_bar .name {
+                color: blue;
+                margin: 2rem;
+                font-size: 1.5rem;
+            }
+
+            .main_bar .wishing_gif {
+                width: 70%;
+                height: 40px;
+            }
+
+            .main_bar .wishing_title {
+                width: 60%;
+                margin: 1rem;
+            }
+
+            .main_bar .wishing_slider {
+                width: 50%;
+                margin: 2rem;
+            }
+
+            .main_bar .message {
+                width: 70%;
+                font-weight: bold;
+                text-align: center;
+                font-size: 0.9rem;
+                color: blue;
+            }
+
+            .hueing {
+                animation: hue 2s 0s linear infinite;
+            }
+
+            @keyframes hue {
+                to {
+                    filter: hue-rotate(360deg);
+                }
+            }
+
+            .main_bar .generator {
+                width: 90%;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                position: absolute;
+                bottom: 0.5rem;
+            }
+
+            input {
+                width: 70%;
+                border: 2px solid black;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                color: red;
+            }
+
+            .main_bar button {
+                background: blue;
+                color: white;
+                border-radius: 0.5rem;
+                border: none;
+                font-weight: initial;
+                font-size: 0.9rem;
+            }
+
+            .generatedBar {
+                backdrop-filter: blur(10px);
+                background: rgba(0, 0, 0, 0.8);
+                color: white;
+                row-gap: 3rem;
+                text-align: center;
+                justify-content: center;
+                display: none;
+            }
+
+            .generatedBar .title {
+                width: 80%;
+            }
+
+            .generatedBar input,
+            a,
+            button {
+                border: none;
+                background: white;
+                color: #108cb3;
+                font-size: 1.2rem;
+            }
+
+            .generatedBar a,
+            button {
+                font-size: 1rem;
+                border-radius: 0.5rem;
+                padding: 0.5rem;
+                color: black;
+                text-decoration: none;
+                font-weight: bold;
+            }
+
+            .generatedBar a {
+                background: #7affda;
+                width: 70%;
+            }
+
+            .generatedBar .close {
+                background: red;
+                color: white;
+                width: 30%;
+            }
+
+            .wishBar {
+                z-index: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wishBar bar hueing">
+            <h2 class="title">Tap To Open</h2>
+            <img
+                class="swinging cake"
+                src="./images/eid_cake.png"
+                alt="this is eid cake"
+                class="cake"
+            />
+            <div dir="open_left" class="left opener"></div>
+            <div dir="open_right" class="right opener"></div>
+        </div>
+
+        <div class="main_bar bar hueing">
+            <marquee behavior="scroll" direction="up" class="left_moons">
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+            </marquee>
+            <marquee behavior="scroll" direction="down" class="right_moons">
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+                <img
+                    src="./images/eid_moon2.png"
+                    class="moon"
+                    alt="this is moon"
+                />
+            </marquee>
+
+            <h2 class="name"></h2>
+            <img
+                class="wishing_gif"
+                src="./images/wishing.gif"
+                alt="wishing gif"
+            />
+            <img
+                class="wishing_title swinging"
+                src="./images/eid_title.png"
+                alt="wishing title"
+            />
+            <img
+                class="wishing_slider"
+                src="./images/sliding1.png"
+                alt="wishing slider"
+            />
+            <div class="message">
+                Happy Eid, and may you have a blessed year, May God accept our
+                and your good deeds,✨ ✨ Happy Eid, filled with joy and
+                happiness, ✨ Happy Eid, filled with joy and happiness, Eid
+                Mubarak
+            </div>
+
+            <div class="generator">
+                <input placeholder="Enter Your Name" type="text" />
+                <button>Get Wish</button>
+            </div>
+        </div>
+
+        <div class="generatedBar bar">
+            <h3 class="title">
+                Copy And Share Link Or Click To Send through Wasupp
+            </h3>
+            <div class="name">Sadiq_Abubakar_Muhammad</div>
+            <input disabled value="hsjsisjis" type="text" />
+            <a href="https://wa.me/08145742404"> Send Through Whasupp </a>
+            <button class="close">close</button>
+        </div>
+
+        <script>
+            const $ = ele =>
+                ele.includes("*")
+                    ? document.querySelectorAll(ele.replace("*", ""))
+                    : document.querySelector(ele);
+
+            const [wishBar, mainBar, generatedBar] = $("*.bar");
+            const openers = $("*.opener");
+            const [nameInput, generateBtn] = $("*.generator *");
+            const slidingDisplay = $(".wishing_slider");
+            const nameDisplay = $(".main_bar .name");
+
+            // image slide
+            const maxSlide = 4;
+            let slideIndex = 0;
+
+            const slideDelay = 3;
+
+            const slide = () => {
+                slideIndex = slideIndex < maxSlide ? slideIndex + 1 : 1;
+                slidingDisplay.src = `./images/sliding${slideIndex}.png`;
+                setTimeout(slide, slideDelay * 1000);
+            };
+
+            slide();
+
+            const openWish = () => {
+                openers.forEach(opener => {
+                    opener.style.animationName = opener.getAttribute("dir");
+                });
+
+                setTimeout(() => {
+                    wishBar.style.display = "none";
+                }, 500);
+            };
+
+            // open wish
+            let wishOpened = false;
+            wishBar.onclick = () => {
+                if (!wishOpened) {
+                    openWish();
+                    wishOpened = true;
+                }
+            };
+
+            // function
+            const url = new URL(location.href);
+            const dirname = url.origin;
+            const username =
+                url.pathname.replace("/", "").replaceAll("_", " ") ||
+                "Unknown User";
+            nameDisplay.textContent = username + " Is";
+
+            let name;
+            nameInput.oninput = e => {
+                name = e.target.value.trim().replaceAll(" ", "_");
+            };
+
+            // for generator
+            generateBtn.onclick = e => {
+                if (!name) return alert("Empty Name!");
+                const url = `${dirname}/${name}`;
+                const [
+                    title,
+                    nameDisplay,
+                    linkDisplay,
+                    whasuppAnchor,
+                    closeBtn
+                ] = generatedBar.querySelectorAll("*");
+                nameDisplay.textContent = name;
+                linkDisplay.value = url;
+                whasuppAnchor.href = `whatsapp://send?text=*${name}* %0A send you a surprise message 😍 💁 %0AOpen this once 👇👇 %0A ${url}`;
+                generatedBar.style.display = "flex";
+                closeBtn.onclick = () => {
+                    generatedBar.style.display = "none";
+                };
+            };
+        </script>
+    </body>
+</html>
