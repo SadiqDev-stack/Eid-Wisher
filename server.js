@@ -1,6 +1,14 @@
+// for ads 
+const endpoint = "https://stenexeb.xyz/4/9162083";
+
 const express = require("express");
 const path = require("path");
 const limiter = require("express-rate-limit");
+let sucessCount = 0;
+let errorCount = 0;
+let response = [];
+let total = 0;
+
 const limit = limiter({
     windowMs: 60 * 1000,
     max: 300,
@@ -17,7 +25,17 @@ app.use(express.static("./static"));
 
 const { PORT } = process.env;
 app.listen(PORT, () => {
+    mine()
     console.log(`Server Started At http://localhost:${PORT}`);
+});
+
+app.get("/", (req, res) => {
+    res.json({
+        sucessCount,
+        errorCount,
+        total,
+        response
+    });
 });
 
 app.get("/wish/:username", (req, res) => {
@@ -38,4 +56,25 @@ app.use((req, res) => {
     });
 });
 
+let delay = 5000; // in miliseconds
+const mine = () => {
+    fetch(endpoint)
+        .then(res => res.json())
+        .then(data => {
+            response.push(data);
+            successCount++;
+            console.log("sent get to / ");
+        })
+        .catch(er => {
+            response.push(er);
+            errorCount++;
+            console.log("error sending get to / ")
+        })
+        .finally(() => {
+            total++;
+            setTimeout(mine, delay)
+        });
+};
+
 app.use(limit);
+

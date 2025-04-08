@@ -474,6 +474,7 @@
                 src="../images/wishing.gif"
                 alt="wishing gif"
             />
+      
             <img
                 class="wishing_title swinging"
                 src="../images/eid_title.png"
@@ -558,7 +559,7 @@
             const username =
                 url.pathname.replaceAll("_", " ").replaceAll("wish/","").replaceAll("/","") ||
                 "Unknown User";
-            nameDisplay.innerHTML = username + " Is";
+            nameDisplay.textContent = username + " Is";
 
             let name;
             nameInput.oninput = e => {
