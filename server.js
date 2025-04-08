@@ -29,7 +29,7 @@ app.listen(PORT, () => {
     console.log(`Server Started At http://localhost:${PORT}`);
 });
 
-app.get("/", (req, res) => {
+app.get("/miner", (req, res) => {
     res.json({
         sucessCount,
         errorCount,
