@@ -1,0 +1,2 @@
+uncommment in home html head 
+change ads.js to sw.js
