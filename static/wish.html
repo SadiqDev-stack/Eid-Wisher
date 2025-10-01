@@ -6,255 +6,103 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Happy Eid</title>
         <style>
-            html {
-                overflow: hidden;
-            }
-            body * {
-                text-transform: capitalize;
-            }
-            body {
-                width: 100vw;
-                height: 100vh;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                margin: 0;
-                overflow: hidden;
-                font-family: arial;
-            }
+/* 🌍 General Responsive Tweaks */
+body {
+  font-size: 16px;
+  line-height: 1.4;
+}
 
-            .bar {
-                position: absolute;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+.cake {
+  max-width: 350px;
+  width: 90%;
+  height: auto;
+}
 
-            .wishBar {
-                justify-content: center;
-                color: white;
-            }
+.wishBar .title {
+  font-size: clamp(1.5rem, 2.5vw, 2.5rem);
+  text-align: center;
+}
 
-            .cake {
-                width: 80%;
-                height: 50%;
-                z-index: 2;
-            }
+.main_bar .name {
+  font-size: clamp(1.2rem, 2vw, 2rem);
+  text-align: center;
+}
 
-            .swinging {
-                animation: swing 2.5s 0s ease-in-out infinite;
-                transform-origin: center;
-            }
+.message {
+  font-size: clamp(0.8rem, 1.5vw, 1.1rem);
+  padding: 0 1rem;
+}
 
-            @keyframes swing {
-                0% {
-                    transform: rotateZ(0deg) scale(1);
-                }
-                25% {
-                    transform: rotateZ(-20deg) scale(0.9);
-                }
-                50% {
-                    transform: rotateZ(0deg) scale(0.8);
-                }
-                75% {
-                    transform: rotateZ(20deg) scale(0.9);
-                }
-                100% {
-                    transform: rotateZ(0deg) scale(1);
-                }
-            }
+/* ✅ Generator Section */
+.generator {
+  flex-direction: column;
+  gap: 0.7rem;
+}
 
-            .wishBar .title {
-                margin: 1rem;
-                font-size: 2rem;
-                z-index: 2;
-                color: greenyellow;
-            }
+.generator input {
+  width: 90%;
+  max-width: 400px;
+}
 
-            .wishBar .opener {
-                width: 50%;
-                height: 100%;
-                background: black;
-                position: absolute;
-                z-index: -1;
-                top: 0;
-                animation: null 1s 0s forwards;
-            }
+.generator button {
+  padding: 0.6rem 1.2rem;
+}
 
-            .wishBar .left {
-                left: 0;
-                transform: translateX(0%);
-            }
+/* 📱 Small devices (phones) */
+@media (max-width: 600px) {
+  .wishing_gif {
+    width: 90%;
+    height: auto;
+  }
 
-            @keyframes open_left {
-                to {
-                    transform: translateX(-150%);
-                }
-            }
+  .wishing_title {
+    width: 80%;
+  }
 
-            .wishBar .right {
-                right: 0;
-            }
+  .wishing_slider {
+    width: 70%;
+  }
 
-            @keyframes open_right {
-                to {
-                    transform: translateX(150%);
-                }
-            }
+  .main_bar .message {
+    font-size: 0.9rem;
+    margin: 1rem 0;
+  }
 
-            .main_bar {
-                /*background: #CBFEE2*/
-                background: #cbfee2;
-            }
+  .generatedBar .title {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
 
-            .main_bar img {
-                width: 20px;
-            }
+  .generatedBar a,
+  .generatedBar button {
+    width: 80%;
+    font-size: 0.9rem;
+  }
+}
 
-            .main_bar marquee {
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                row-gap: 1rem;
-                width: 15%;
-                align-items: center;
-                top: 0;
-                position: absolute;
-            }
+/* 💻 Tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .wishing_slider {
+    width: 40%;
+  }
+  .main_bar .message {
+    width: 80%;
+  }
+}
 
-            .main_bar .left_moons {
-                left: 0;
-            }
-            .main_bar .right_moons {
-                right: 0;
-            }
-
-            .main_bar .moon {
-                width: 80%;
-            }
-
-            .main_bar .name {
-                color: blue;
-                margin: 2rem;
-                font-size: 1.5rem;
-            }
-
-            .main_bar .wishing_gif {
-                width: 70%;
-                height: 40px;
-            }
-
-            .main_bar .wishing_title {
-                width: 60%;
-                margin: 1rem;
-            }
-
-            .main_bar .wishing_slider {
-                width: 50%;
-                margin: 2rem;
-            }
-
-            .main_bar .message {
-                width: 70%;
-                font-weight: bold;
-                text-align: center;
-                font-size: 0.9rem;
-                color: blue;
-            }
-
-            .hueing {
-                animation: hue 2s 0s linear infinite;
-            }
-
-            @keyframes hue {
-                to {
-                    filter: hue-rotate(360deg);
-                }
-            }
-
-            .main_bar .generator {
-                width: 90%;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                position: absolute;
-                bottom: 0.5rem;
-            }
-
-            input {
-                width: 70%;
-                border: 2px solid black;
-                border-radius: 0.5rem;
-                padding: 0.5rem;
-                color: red;
-            }
-
-            .main_bar button {
-                background: blue;
-                color: white;
-                border-radius: 0.5rem;
-                border: none;
-                font-weight: initial;
-                font-size: 0.9rem;
-            }
-
-            .generatedBar {
-                backdrop-filter: blur(10px);
-                background: rgba(0, 0, 0, 0.8);
-                color: white;
-                row-gap: 3rem;
-                text-align: center;
-                justify-content: center;
-                display: none;
-            }
-
-            .generatedBar .title {
-                width: 80%;
-            }
-
-            .generatedBar input,
-            a,
-            button {
-                border: none;
-                background: white;
-                color: #108cb3;
-                font-size: 1.2rem;
-            }
-
-            .generatedBar a,
-            button {
-                font-size: 1rem;
-                border-radius: 0.5rem;
-                padding: 0.5rem;
-                color: black;
-                text-decoration: none;
-                font-weight: bold;
-            }
-
-            .generatedBar a {
-                background: #7affda;
-                width: 70%;
-            }
-
-            .generatedBar .close {
-                background: red;
-                color: white;
-                width: 30%;
-            }
-
-            .wishBar {
-                z-index: 1;
-            }
-            
-            @media (min-width: 600px){
-                .wishing_slider{
-                    width: 15%
-                }
-            }
-            
-            
+/* 🖥️ Desktop */
+@media (min-width: 1025px) {
+  .cake {
+    max-width: 500px;
+  }
+  .wishing_slider {
+    width: 20%;
+  }
+  .main_bar .message {
+    width: 60%;
+    font-size: 1.1rem;
+  }
+}
             
         </style>
     </head>
