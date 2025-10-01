@@ -38,8 +38,9 @@
             }
 
             .cake {
-                width: 80%;
-                height: 50%;
+               max-width: 50%;
+               min-width: 30%;
+               max-height: 50%;
                 z-index: 2;
             }
 
@@ -118,7 +119,8 @@
                 display: flex;
                 flex-direction: column;
                 row-gap: 1rem;
-                width: 15%;
+                max-width: 15%;
+                min-width: 5%
                 align-items: center;
                 top: 0;
                 position: absolute;
@@ -142,17 +144,21 @@
             }
 
             .main_bar .wishing_gif {
-                width: 60%;
-                height: 40px;
+                max-width: 50%;
+                min-width: 40%;
+                min-height: 40px;
+                max-height: 70px
             }
 
             .main_bar .wishing_title {
-                width: 60%;
+                max-width: 50%;
+                min-width: 30%;
                 margin: 1rem;
             }
 
             .main_bar .wishing_slider {
                 width: 50%;
+                max-height: 500px;
                 margin: 2rem;
             }
 
@@ -249,25 +255,23 @@
             }
             
             @media (min-width: 600px){
-                .wishing_title{
-                    width: 20%
+                .main_bar marquee{
+                    max-width: 10%;
+                    min-width: 5%
                 }
                 
-                .wishing_gif{
-                    width: 50%;
-                    height: 50px;
+                .main_bar .wishing_slider{
+                    max-height: 250px;
+                    max-width: 50%;
                 }
                 
-                .wishing_slider{
-                    width: 50%
-                }
-                
-                input, button{
+                .main_bar .message, input,.main_bar button{
                     font-size: 1.2rem;
                 }
                 
-                
-                
+                .main_bar h2{
+                    font-size: 2rem!important
+                }
                 
             }
             
@@ -280,7 +284,7 @@
             <h2 class="title">Tap To Open</h2>
             <img
                 class="swinging cake"
-                src="../images/eid_cake.png"
+                src="./images/eid_cake.png"
                 alt="this is eid cake"
                 class="cake"
             />
@@ -291,204 +295,204 @@
         <div class="main_bar bar hueing">
             <marquee behavior="scroll" direction="up" class="left_moons">
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
             </marquee>
             <marquee behavior="scroll" direction="down" class="right_moons">
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
               />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon.png"
+                    src="./images/eid_moon.png"
                     class="moon"
                     alt="this is moon"
                 />
                 <img
-                    src="../images/eid_moon2.png"
+                    src="./images/eid_moon2.png"
                     class="moon"
                     alt="this is moon"
                 />
@@ -497,18 +501,18 @@
             <h2 class="name"></h2>
             <img
                 class="wishing_gif"
-                src="../images/wishing.gif"
+                src="./images/wishing.gif"
                 alt="wishing gif"
             />
       
             <img
                 class="wishing_title swinging"
-                src="../images/eid_title.png"
+                src="./images/eid_title.png"
                 alt="wishing title"
             />
             <img
                 class="wishing_slider"
-                src="../images/sliding1.png"
+                src="./images/sliding1.png"
                 alt="wishing slider"
             />
             <div class="message">
@@ -554,7 +558,7 @@
 
             const slide = () => {
                 slideIndex = slideIndex < maxSlide ? slideIndex + 1 : 1;
-                slidingDisplay.src = `../images/sliding${slideIndex}.png`;
+                slidingDisplay.src = `./images/sliding${slideIndex}.png`;
                 setTimeout(slide, slideDelay * 1000);
             };
 
